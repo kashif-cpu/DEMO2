@@ -1,0 +1,33 @@
+﻿
+@model MvcBankTask.Models.tbltransaction
+
+@{
+    ViewBag.Title = "Deposite";
+    Layout = null;
+}
+
+@using (Html.BeginForm("Deposite", "Transactions", FormMethod.Post))
+{
+    <table>
+
+        <tr>
+            <td> Enter The Amount To Deposite </td>
+            <td> @Html.EditorFor(x => x.dep_amount) </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td>
+                <input type="submit" value="Deposite" />
+                @Html.ActionLink("Back To Menu", "Index", "Transactions")
+            </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td> @ViewBag.Msg </td>
+        </tr>
+
+    </table>
+}
+

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="aptechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblaccount">
+          <Key>
+            <PropertyRef Name="accid" />
+          </Key>
+          <Property Name="accid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uname" Type="varchar" MaxLength="50" />
+          <Property Name="accno" Type="int" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+          <Property Name="date_time" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbltransaction">
+          <Key>
+            <PropertyRef Name="trid" />
+          </Key>
+          <Property Name="trid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="acc_no" Type="int" />
+          <Property Name="dep_amount" Type="int" />
+          <Property Name="with_draw_amount" Type="int" />
+          <Property Name="current_bal" Type="bigint" />
+          <Property Name="date_time" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="aptechModelStoreContainer">
+          <EntitySet Name="tblaccount" EntityType="Self.tblaccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbltransaction" EntityType="Self.tbltransaction" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="aptechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblaccount">
+          <Key>
+            <PropertyRef Name="accid" />
+          </Key>
+          <Property Name="accid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="accno" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbltransaction">
+          <Key>
+            <PropertyRef Name="trid" />
+          </Key>
+          <Property Name="trid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acc_no" Type="Int32" />
+          <Property Name="dep_amount" Type="Int32" />
+          <Property Name="with_draw_amount" Type="Int32" />
+          <Property Name="current_bal" Type="Int64" />
+          <Property Name="date_time" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="aptechEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblaccounts" EntityType="Self.tblaccount" />
+          <EntitySet Name="tbltransactions" EntityType="Self.tbltransaction" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="aptechModelStoreContainer" CdmEntityContainer="aptechEntities">
+          <EntitySetMapping Name="tblaccounts">
+            <EntityTypeMapping TypeName="aptechModel.tblaccount">
+              <MappingFragment StoreEntitySet="tblaccount">
+                <ScalarProperty Name="accid" ColumnName="accid" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="accno" ColumnName="accno" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbltransactions">
+            <EntityTypeMapping TypeName="aptechModel.tbltransaction">
+              <MappingFragment StoreEntitySet="tbltransaction">
+                <ScalarProperty Name="trid" ColumnName="trid" />
+                <ScalarProperty Name="acc_no" ColumnName="acc_no" />
+                <ScalarProperty Name="dep_amount" ColumnName="dep_amount" />
+                <ScalarProperty Name="with_draw_amount" ColumnName="with_draw_amount" />
+                <ScalarProperty Name="current_bal" ColumnName="current_bal" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

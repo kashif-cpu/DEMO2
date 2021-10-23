@@ -1,0 +1,34 @@
+﻿
+@model MvcBankTask.Models.tbltransaction
+
+@{
+    ViewBag.Title = "Withdraw";
+    Layout = null;
+}
+
+@using (Html.BeginForm("Withdraw", "Transactions", FormMethod.Post))
+{
+    <table>
+
+        <tr>
+            <td> Enter The Amount To WithDraw </td>
+            <td> @Html.EditorFor(x => x.with_draw_amount) </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td>
+                <input type="submit" value="WithDraw" />
+                @Html.ActionLink("Back To Menu", "Index", "Transactions")
+            </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td> @ViewBag.Msg </td>
+        </tr>
+
+    </table>
+}
+
+

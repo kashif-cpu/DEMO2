@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="aptechModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblaccount">
+    <Key>
+      <PropertyRef Name="accid" />
+    </Key>
+    <Property Name="accid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uname" Type="varchar" MaxLength="50" />
+    <Property Name="accno" Type="int" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+    <Property Name="date_time" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbltransaction">
+    <Key>
+      <PropertyRef Name="trid" />
+    </Key>
+    <Property Name="trid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="acc_no" Type="int" />
+    <Property Name="dep_amount" Type="int" />
+    <Property Name="with_draw_amount" Type="int" />
+    <Property Name="current_bal" Type="bigint" />
+    <Property Name="date_time" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="aptechModelStoreContainer">
+    <EntitySet Name="tblaccount" EntityType="Self.tblaccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbltransaction" EntityType="Self.tbltransaction" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

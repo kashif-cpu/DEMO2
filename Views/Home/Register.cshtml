@@ -1,0 +1,51 @@
+﻿
+@model MvcBankTask.Models.ProppertyClass
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+@using(Html.BeginForm("Register","Home",FormMethod.Post))
+{
+    <table>
+
+        <tr>
+            <td> Enter The Name </td>
+            <td> @Html.TextBoxFor(x => x.uname) </td>
+        </tr>
+
+        <tr>
+            <td> Enter The Account Number </td>
+            <td> @Html.EditorFor(x => x.accno) </td>
+        </tr>
+
+        <tr>
+            <td> Select Gender </td>
+            <td>
+                Male @Html.RadioButtonFor(x => x.gender, "Male")
+                Female @Html.RadioButtonFor(x => x.gender, "Female")
+            </td>
+        </tr>
+
+        <tr>
+            <td> Enter The Deposited Amount </td>
+            <td> @Html.EditorFor(x => x.dep_amount) </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td>
+                <input type="submit" value="Register" />
+                @Html.ActionLink("Login Account", "Index", "Home")
+            </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td> @ViewBag.Msg </td>
+        </tr>
+
+</table>
+}
+

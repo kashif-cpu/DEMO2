@@ -1,0 +1,34 @@
+﻿
+@model MvcBankTask.Models.ProppertyClass
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@using (Html.BeginForm("Index","Home",FormMethod.Post))
+{
+    <table>
+
+        <tr>
+            <td> Enter The Account Number </td>
+            <td> @Html.PasswordFor(x => x.accno) </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td>
+                <input type="submit" value="Login" />
+                @Html.ActionLink("Register Account", "Register", "Home")
+            </td>
+        </tr>
+
+        <tr>
+            <td>  </td>
+            <td> @ViewBag.Msg </td>
+        </tr>
+
+    </table>
+}
+
+
